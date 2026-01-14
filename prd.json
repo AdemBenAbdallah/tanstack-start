@@ -1,0 +1,163 @@
+{
+  "project": "Haute Pâtisserie 2026 Conference Website",
+  "version": "1.0.0",
+  "description": "A modern React conference website built with TanStack Start, featuring routing, SSR, and AI integration",
+  "stories": [
+    {
+      "id": "story-1",
+      "priority": 1,
+      "category": "core",
+      "title": "Setup project structure and routing",
+      "description": "Configure the initial project structure with React Router and ensure all routes are properly defined and accessible. This includes setting up the root layout, implementing nested routing patterns, and verifying that route parameters and queries work correctly.",
+      "passes": true,
+      "status": "completed",
+      "acceptance_criteria": [
+        "Project builds successfully with no errors",
+        "All routes are accessible and return 200 status",
+        "Route parameters are properly handled",
+        "Nested routing works as expected"
+      ]
+    },
+    {
+      "id": "story-2",
+      "priority": 2,
+      "category": "core",
+      "title": "Implement server-side rendering",
+      "description": "Ensure proper SSR functionality is working. The application should render on the server and hydrate correctly on the client. This includes proper handling of async data, loading states, and SEO-related meta tags.",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "SSR renders correct HTML on initial load",
+        "Client hydration works without errors",
+        "Loading states are handled gracefully",
+        "Meta tags are properly rendered for SEO"
+      ]
+    },
+    {
+      "id": "story-3",
+      "priority": 3,
+      "category": "data",
+      "title": "Implement data fetching layer",
+      "description": "Set up a robust data fetching layer using TanStack Query (React Query). This includes configuring the query client, implementing proper caching strategies, handling loading and error states, and integrating with the SSR flow.",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Query client is properly configured",
+        "Data is fetched and cached correctly",
+        "Loading and error states are displayed",
+        "Prefetching works during SSR"
+      ]
+    },
+    {
+      "id": "story-4",
+      "priority": 4,
+      "category": "ui",
+      "title": "Build reusable component library",
+      "description": "Create a set of reusable UI components following the design system. Components should be accessible, responsive, and properly typed. This includes buttons, forms, cards, modals, and other common UI elements.",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Components are accessible (WCAG 2.1 AA)",
+        "Components are responsive across breakpoints",
+        "Components have proper TypeScript types",
+        "Components have unit tests with good coverage"
+      ]
+    },
+    {
+      "id": "story-5",
+      "priority": 5,
+      "category": "forms",
+      "title": "Implement form handling",
+      "description": "Create form handling utilities and components using a form library (such as TanStack Form or React Hook Form). Forms should have proper validation, error handling, and submission logic.",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Form validation works correctly",
+        "Error messages are displayed appropriately",
+        "Form submission handles success and error states",
+        "Form fields are accessible"
+      ]
+    },
+    {
+      "id": "story-6",
+      "priority": 6,
+      "category": "ai",
+      "title": "Add Remy AI assistant",
+      "description": "Implement the Remy AI assistant feature for the conference website. This includes the chat UI, API integration with AI provider, and proper state management for conversations.",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Chat UI is accessible and responsive",
+        "API calls to AI provider work correctly",
+        "Conversation history is maintained",
+        "Loading and error states are handled"
+      ]
+    },
+    {
+      "id": "story-7",
+      "priority": 7,
+      "category": "content",
+      "title": "Content collections integration",
+      "description": "Set up content collections for speakers and talks. Ensure markdown files are properly parsed, transformed, and available throughout the application.",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Speaker content is properly loaded",
+        "Talk content is properly loaded",
+        "Content transformations work correctly",
+        "Types are properly inferred"
+      ]
+    },
+    {
+      "id": "story-8",
+      "priority": 8,
+      "category": "testing",
+      "title": "Set up testing infrastructure",
+      "description": "Configure comprehensive testing including unit tests, integration tests, and end-to-end tests. Ensure proper test coverage and CI integration.",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Unit tests pass with good coverage",
+        "Integration tests verify component interactions",
+        "E2E tests cover critical user journeys",
+        "Tests run in CI pipeline"
+      ]
+    },
+    {
+      "id": "story-9",
+      "priority": 9,
+      "category": "deployment",
+      "title": "Configure deployment pipeline",
+      "description": "Set up automated deployment to Cloudflare Pages (or other hosting). This includes environment configuration, build optimization, and health checks.",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Build completes successfully",
+        "Deployment to staging environment works",
+        "Production deployment is automated",
+        "Environment variables are properly configured"
+      ]
+    },
+    {
+      "id": "story-10",
+      "priority": 10,
+      "category": "performance",
+      "title": "Optimize performance",
+      "description": "Identify and resolve performance bottlenecks. Implement code splitting, lazy loading, and other optimizations to ensure fast load times and smooth interactions.",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Bundle size is optimized",
+        "Code splitting is implemented for routes",
+        "Lazy loading works for heavy components",
+        "Performance metrics meet targets"
+      ]
+    }
+  ],
+  "metadata": {
+    "created": "2025-01-14",
+    "updated": "2025-01-14",
+    "total_stories": 10,
+    "completed_stories": 1
+  }
+}
