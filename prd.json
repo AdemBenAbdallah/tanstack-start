@@ -24,8 +24,8 @@
       "category": "core",
       "title": "Implement server-side rendering",
       "description": "Ensure proper SSR functionality is working. The application should render on the server and hydrate correctly on the client. This includes proper handling of async data, loading states, and SEO-related meta tags.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "SSR renders correct HTML on initial load",
         "Client hydration works without errors",
@@ -39,8 +39,8 @@
       "category": "data",
       "title": "Implement data fetching layer",
       "description": "Set up a robust data fetching layer using TanStack Query (React Query). This includes configuring the query client, implementing proper caching strategies, handling loading and error states, and integrating with the SSR flow.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "Query client is properly configured",
         "Data is fetched and cached correctly",
@@ -54,8 +54,8 @@
       "category": "ui",
       "title": "Build reusable component library",
       "description": "Create a set of reusable UI components following the design system. Components should be accessible, responsive, and properly typed. This includes buttons, forms, cards, modals, and other common UI elements.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "Components are accessible (WCAG 2.1 AA)",
         "Components are responsive across breakpoints",
@@ -69,8 +69,8 @@
       "category": "forms",
       "title": "Implement form handling",
       "description": "Create form handling utilities and components using a form library (such as TanStack Form or React Hook Form). Forms should have proper validation, error handling, and submission logic.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "Form validation works correctly",
         "Error messages are displayed appropriately",
@@ -84,8 +84,8 @@
       "category": "ai",
       "title": "Add Remy AI assistant",
       "description": "Implement the Remy AI assistant feature for the conference website. This includes the chat UI, API integration with AI provider, and proper state management for conversations.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "Chat UI is accessible and responsive",
         "API calls to AI provider work correctly",
@@ -99,8 +99,8 @@
       "category": "content",
       "title": "Content collections integration",
       "description": "Set up content collections for speakers and talks. Ensure markdown files are properly parsed, transformed, and available throughout the application.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "Speaker content is properly loaded",
         "Talk content is properly loaded",
@@ -114,8 +114,8 @@
       "category": "testing",
       "title": "Set up testing infrastructure",
       "description": "Configure comprehensive testing including unit tests, integration tests, and end-to-end tests. Ensure proper test coverage and CI integration.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "Unit tests pass with good coverage",
         "Integration tests verify component interactions",
@@ -129,8 +129,8 @@
       "category": "deployment",
       "title": "Configure deployment pipeline",
       "description": "Set up automated deployment to Cloudflare Pages (or other hosting). This includes environment configuration, build optimization, and health checks.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "Build completes successfully",
         "Deployment to staging environment works",
@@ -144,8 +144,8 @@
       "category": "performance",
       "title": "Optimize performance",
       "description": "Identify and resolve performance bottlenecks. Implement code splitting, lazy loading, and other optimizations to ensure fast load times and smooth interactions.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "Bundle size is optimized",
         "Code splitting is implemented for routes",
@@ -158,6 +158,6 @@
     "created": "2025-01-14",
     "updated": "2025-01-14",
     "total_stories": 10,
-    "completed_stories": 1
+    "completed_stories": 10
   }
 }
