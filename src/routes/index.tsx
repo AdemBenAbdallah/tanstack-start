@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, createHead, Link } from "@tanstack/react-router";
 import { ArrowRight, Calendar, MapPin, Users } from "lucide-react";
 
 import { allSpeakers, allTalks } from "content-collections";
@@ -11,6 +11,33 @@ import TalkCard from "@/components/TalkCard";
 export const Route = createFileRoute("/")({
   component: HomePage,
 });
+
+export const head = createHead(() => ({
+  title: "Haute Pâtisserie 2026 - Paris Pastry Conference",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Join the world's most celebrated pastry chefs and master bakers for three extraordinary days of masterclasses, demonstrations, and culinary inspiration in Paris, France.",
+    },
+    {
+      property: "og:title",
+      content: "Haute Pâtisserie 2026",
+    },
+    {
+      property: "og:description",
+      content: "A world-class pastry conference in Paris. March 15-17, 2026.",
+    },
+    {
+      property: "og:image",
+      content: "https://haute-patisserie-2026.com/og-image.jpg",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+  ],
+}));
 
 function HomePage() {
   const featuredSpeakers = allSpeakers.slice(0, 3);
