@@ -1,12 +1,23 @@
 import { createFileRoute, createHead, Link } from "@tanstack/react-router";
 import { ArrowRight, Calendar, MapPin, Users } from "lucide-react";
+import { lazy, Suspense } from "react";
 
 import { allSpeakers, allTalks } from "content-collections";
 
 import HeroCarousel from "@/components/HeroCarousel";
-import RemyAssistant from "@/components/RemyAssistant";
 import SpeakerCard from "@/components/SpeakerCard";
 import TalkCard from "@/components/TalkCard";
+
+// Lazy load RemyAssistant for performance
+const RemyAssistant = lazy(() =>
+  import("@/components/RemyAssistant").then((mod) => ({
+    default: mod.default,
+  })),
+);
+
+function LoadingFallback() {
+  return null;
+}
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -45,7 +56,9 @@ function HomePage() {
 
   return (
     <>
-      <RemyAssistant />
+      <Suspense fallback={<LoadingFallback />}>
+        <RemyAssistant />
+      </Suspense>
 
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
