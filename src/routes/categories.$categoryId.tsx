@@ -1,21 +1,56 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Filter, Plus, Search } from "lucide-react";
+import { ArrowLeft, Filter, Plus, Search } from "lucide-react";
 
-export const Route = createFileRoute("/")({
-	component: Home,
+export const Route = createFileRoute("/categories/$categoryId")({
+	component: CategoryDetail,
 });
 
-function Home() {
+const categoryColors: Record<string, string> = {
+	work: "oklch(0.6 0.15 200)",
+	personal: "oklch(0.65 0.15 320)",
+	shopping: "oklch(0.55 0.15 120)",
+	health: "oklch(0.6 0.15 140)",
+	projects: "oklch(0.7 0.15 60)",
+};
+
+function CategoryDetail() {
+	const { categoryId } = Route.useParams();
+	const categoryName = categoryId.charAt(0).toUpperCase() + categoryId.slice(1);
+	const categoryColor = categoryColors[categoryId] || "oklch(0.65 0.14 55)";
+
 	return (
 		<div className="max-w-5xl mx-auto">
+			<div className="flex items-center gap-4 mb-8">
+				<a
+					href="/categories"
+					className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+				>
+					<ArrowLeft className="w-5 h-5" />
+					<span>Back to Categories</span>
+				</a>
+			</div>
+
 			<div className="flex items-center justify-between mb-8">
-				<div>
-					<h1 className="text-4xl font-display font-bold text-foreground">
-						All Tasks
-					</h1>
-					<p className="text-muted-foreground mt-2">
-						Manage and organize your tasks
-					</p>
+				<div className="flex items-center gap-4">
+					<div
+						className="w-14 h-14 rounded-xl flex items-center justify-center"
+						style={{ backgroundColor: `${categoryColor}30` }}
+					>
+						<span
+							className="text-2xl font-bold"
+							style={{ color: categoryColor }}
+						>
+							{categoryName.charAt(0)}
+						</span>
+					</div>
+					<div>
+						<h1 className="text-4xl font-display font-bold text-foreground">
+							{categoryName}
+						</h1>
+						<p className="text-muted-foreground mt-1">
+							3 tasks in this category
+						</p>
+					</div>
 				</div>
 				<button
 					type="button"
@@ -48,15 +83,17 @@ function Home() {
 				<div className="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/20 flex items-center justify-center">
 					<Plus className="w-8 h-8 text-accent" />
 				</div>
-				<h3 className="text-xl font-semibold mb-2">No tasks yet</h3>
+				<h3 className="text-xl font-semibold mb-2">
+					No tasks in this category
+				</h3>
 				<p className="text-muted-foreground mb-6">
-					Create your first task to get started
+					Add tasks to the {categoryName} category to see them here
 				</p>
 				<button
 					type="button"
 					className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-200 glow-copper cursor-pointer"
 				>
-					Create Your First Task
+					Add Task to {categoryName}
 				</button>
 			</div>
 		</div>
