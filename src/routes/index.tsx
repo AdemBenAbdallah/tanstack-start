@@ -2,19 +2,57 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Filter, Plus, Search } from "lucide-react";
 import { useState } from "react";
 import { TodoList } from "../components/TodoList";
+import { TodoModal } from "../components/TodoModal";
 import { useStore } from "../lib/store";
+import type { Todo } from "../types/todo";
 
 export const Route = createFileRoute("/")({
 	component: Home,
 });
 
 function Home() {
-	const { todos, toggleTodoCompletion, removeTodo } = useStore();
+	const {
+		todos,
+		categories,
+		addTodo,
+		updateTodo,
+		toggleTodoCompletion,
+		removeTodo,
+	} = useStore();
 	const [searchQuery, setSearchQuery] = useState("");
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [editingTodo, setEditingTodo] = useState<Todo | null>(null);
 
 	const filteredTodos = todos.filter((todo) =>
 		todo.title.toLowerCase().includes(searchQuery.toLowerCase()),
 	);
+
+	const handleSave = (
+		data: Omit<Todo, "id" | "createdAt" | "updatedAt" | "completed">,
+	) => {
+		if (editingTodo) {
+			updateTodo(editingTodo.id, { ...data, completed: editingTodo.completed });
+		} else {
+			addTodo({ ...data, completed: false });
+		}
+		setIsModalOpen(false);
+		setEditingTodo(null);
+	};
+
+	const handleOpenAddModal = () => {
+		setEditingTodo(null);
+		setIsModalOpen(true);
+	};
+
+	const handleOpenEditModal = (todo: Todo) => {
+		setEditingTodo(todo);
+		setIsModalOpen(true);
+	};
+
+	const handleCloseModal = () => {
+		setIsModalOpen(false);
+		setEditingTodo(null);
+	};
 
 	return (
 		<div className="max-w-5xl mx-auto">
@@ -29,6 +67,7 @@ function Home() {
 				</div>
 				<button
 					type="button"
+					onClick={handleOpenAddModal}
 					className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-200 glow-copper card-hover cursor-pointer"
 				>
 					<Plus className="w-5 h-5" />
@@ -69,6 +108,7 @@ function Home() {
 					</p>
 					<button
 						type="button"
+						onClick={handleOpenAddModal}
 						className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-200 glow-copper cursor-pointer"
 					>
 						Create Your First Task
@@ -79,8 +119,17 @@ function Home() {
 					todos={filteredTodos}
 					onToggle={toggleTodoCompletion}
 					onDelete={removeTodo}
+					onEdit={handleOpenEditModal}
 				/>
 			)}
+
+			<TodoModal
+				isOpen={isModalOpen}
+				onClose={handleCloseModal}
+				onSave={handleSave}
+				todo={editingTodo}
+				categories={categories}
+			/>
 		</div>
 	);
 }

@@ -1,4 +1,4 @@
-import { Check, Clock, Flag } from "lucide-react";
+import { Check, Clock, Edit, Flag } from "lucide-react";
 import type { Todo } from "../types/todo";
 import { PRIORITY_COLORS } from "../types/todo";
 
@@ -6,9 +6,10 @@ interface TodoItemProps {
 	todo: Todo;
 	onToggle: (id: string) => void;
 	onDelete: (id: string) => void;
+	onEdit: (todo: Todo) => void;
 }
 
-export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
+export function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemProps) {
 	const formattedDate = todo.dueDate
 		? new Date(todo.dueDate).toLocaleDateString("en-US", {
 				month: "short",
@@ -86,13 +87,23 @@ export function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
 				</div>
 			</div>
 
-			<button
-				type="button"
-				onClick={() => onDelete(todo.id)}
-				className="opacity-0 group-hover:opacity-100 px-3 py-1.5 text-xs text-red-500 hover:bg-red-500/10 rounded-lg transition-all duration-200 cursor-pointer"
-			>
-				Delete
-			</button>
+			<div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-200">
+				<button
+					type="button"
+					onClick={() => onEdit(todo)}
+					className="p-1.5 text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all cursor-pointer"
+					aria-label="Edit task"
+				>
+					<Edit className="w-4 h-4" />
+				</button>
+				<button
+					type="button"
+					onClick={() => onDelete(todo.id)}
+					className="px-3 py-1.5 text-xs text-red-500 hover:bg-red-500/10 rounded-lg transition-all cursor-pointer"
+				>
+					Delete
+				</button>
+			</div>
 		</div>
 	);
 }
