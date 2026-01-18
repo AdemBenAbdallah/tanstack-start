@@ -39,6 +39,27 @@
   - Search functionality to filter todos by title
   - Toggle completion and delete functionality integrated
 
+- **Story 5: Implement add and edit todo functionality** (Priority 5, Feature)
+  - Created TodoModal component with form for adding/editing todos
+  - Title field is required with HTML5 validation
+  - Description field is optional with textarea input
+  - Due date picker with date input
+  - Priority selection dropdown (low, medium, high)
+  - Category selection dropdown with all available categories
+  - Modal opens from "Add Task" button and "Create Your First Task" button
+  - Edit button added to each todo item with pencil icon
+  - Edit modal pre-fills with existing todo values
+  - Save creates new todo or updates existing todo via store
+  - Modal closes properly after save or cancel
+
+- **Story 9: Implement dark mode and theming** (Priority 9, Feature)
+  - Added ThemeProvider with light, dark, and system theme options
+  - Theme preference persists to localStorage
+  - System color scheme detection on initial load
+  - Settings page has functional theme toggles (Dark, Light, System)
+  - Theme changes apply instantly across the application
+  - System preference mode responds to OS theme changes
+
 ## Current State
 
-Story 4 completed. 6 stories remaining.
+Story 9 completed. 4 stories remaining (Story 6, 7, 8, 10).

@@ -141,8 +141,8 @@
       "category": "feature",
       "title": "Implement dark mode and theming",
       "description": "Add light and dark theme support with system preference detection. Create a theme switcher in settings, persist theme preference, and ensure all UI components adapt properly to both themes.",
-      "passes": false,
-      "status": "pending",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
         "Dark/light mode toggle in settings",
         "System preference detection on first load",
