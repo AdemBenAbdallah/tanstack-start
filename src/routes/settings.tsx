@@ -1,11 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Bell, Download, Palette, Trash2, Upload } from "lucide-react";
+import { useTheme } from "../lib/theme";
 
 export const Route = createFileRoute("/settings")({
 	component: Settings,
 });
 
 function Settings() {
+	const { theme, setTheme } = useTheme();
+
 	return (
 		<div className="max-w-3xl mx-auto">
 			<h1 className="text-4xl font-display font-bold text-foreground mb-8">
@@ -28,9 +31,37 @@ function Settings() {
 							</div>
 							<button
 								type="button"
-								className="relative w-14 h-8 bg-primary rounded-full transition-colors cursor-pointer"
+								onClick={() => setTheme("dark")}
+								className={`relative w-14 h-8 rounded-full transition-colors cursor-pointer ${
+									theme === "dark" ? "bg-primary" : "bg-muted"
+								}`}
 							>
-								<span className="absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform" />
+								<span
+									className={`absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform ${
+										theme === "dark" ? "translate-x-6" : ""
+									}`}
+								/>
+							</button>
+						</div>
+						<div className="flex items-center justify-between">
+							<div>
+								<p className="font-medium">Light Mode</p>
+								<p className="text-sm text-muted-foreground">
+									Use light theme across the application
+								</p>
+							</div>
+							<button
+								type="button"
+								onClick={() => setTheme("light")}
+								className={`relative w-14 h-8 rounded-full transition-colors cursor-pointer ${
+									theme === "light" ? "bg-primary" : "bg-muted"
+								}`}
+							>
+								<span
+									className={`absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform ${
+										theme === "light" ? "translate-x-6" : ""
+									}`}
+								/>
 							</button>
 						</div>
 						<div className="flex items-center justify-between">
@@ -42,9 +73,16 @@ function Settings() {
 							</div>
 							<button
 								type="button"
-								className="relative w-14 h-8 bg-muted rounded-full transition-colors cursor-pointer"
+								onClick={() => setTheme("system")}
+								className={`relative w-14 h-8 rounded-full transition-colors cursor-pointer ${
+									theme === "system" ? "bg-primary" : "bg-muted"
+								}`}
 							>
-								<span className="absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform translate-x-6" />
+								<span
+									className={`absolute left-1 top-1 w-6 h-6 bg-white rounded-full transition-transform ${
+										theme === "system" ? "translate-x-6" : ""
+									}`}
+								/>
 							</button>
 						</div>
 					</div>
