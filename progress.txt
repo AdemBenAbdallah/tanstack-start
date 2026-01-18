@@ -3,5 +3,16 @@
 
 ## Completed Tasks
 
+- **Story 1: Setup project structure and routing** (Priority 1, Core)
+  - Updated root layout with navigation sidebar (All Tasks, Categories, Settings)
+  - Home route displays main todo list with search and filter UI
+  - Created categories route with category cards showing task counts
+  - Created category detail route for filtering tasks by category
+  - Created settings route with appearance, notifications, and data management
+  - All routes properly defined and accessible via nested routing
+  - Project builds successfully with no errors
+  - Biome formatting and linting passes
 
 ## Current State
+
+Story 1 completed. 9 stories remaining.
