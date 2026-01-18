@@ -1,179 +1,40 @@
-/home/adem/Work/tanstack-start/prd.json
 {
   "project": "TaskFlow - Modern Todo App",
   "version": "1.0.0",
   "description": "A productivity-focused todo application built with TanStack Start, featuring localStorage persistence, categories, and smart filtering",
   "stories": [
+
     {
       "id": "story-1",
       "priority": 1,
-      "category": "core",
-      "title": "Setup project structure and routing",
-      "description": "Configure the initial project structure with TanStack Router. Set up the root layout with navigation, implement nested routing for different views (all tasks, categories, settings), and ensure all routes are properly defined and accessible.",
-      "passes": false,
-      "status": "pending",
-      "acceptance_criteria": [
-        "Project builds successfully with no errors",
-        "Home route displays the main todo list",
-        "Category routes filter todos correctly",
-        "Settings route is accessible",
-        "Nested routing works as expected"
-      ]
-    },
-    {
-      "id": "story-2",
-      "priority": 2,
-      "category": "core",
-      "title": "Implement localStorage persistence layer",
-      "description": "Create a robust persistence layer using localStorage to store all todo data. Implement proper serialization/deserialization, handle storage errors gracefully, and create utility functions for CRUD operations on todos.",
-      "passes": false,
-      "status": "pending",
-      "acceptance_criteria": [
-        "Todos are saved to localStorage on every change",
-        "Todos are loaded from localStorage on app start",
-        "Data persists across browser sessions",
-        "Error handling for quota exceeded or corrupted data",
-        "Initial seed data for new users"
-      ]
-    },
-    {
-      "id": "story-3",
-      "priority": 3,
-      "category": "feature",
-      "title": "Create todo data model and types",
-      "description": "Define TypeScript interfaces for todo items including id, title, description, due date, priority, category, createdAt, and completed status. Create validation utilities and ensure type safety throughout the application.",
-      "passes": true,
-      "status": "completed",
-      "acceptance_criteria": [
-        "Todo interface is properly typed",
-        "Unique ID generation for new todos",
-        "Date handling with proper timezone support",
-        "Priority levels (low, medium, high)",
-        "Category support with color coding"
-      ]
-    },
-    {
-      "id": "story-4",
-      "priority": 4,
-      "category": "ui",
-      "title": "Build main todo list component",
-      "description": "Create the primary todo list UI component that displays all todos in a clean, organized format. Each todo item should show its title, priority indicator, due date, and completion checkbox. Implement smooth animations for interactions.",
-      "passes": true,
-      "status": "completed",
-      "acceptance_criteria": [
-        "Todo items render with all relevant information",
-        "Priority badges are color-coded and visible",
-        "Due dates are formatted readably",
-        "Empty state is displayed when no todos exist",
-        "Smooth enter/exit animations for items"
-      ]
-    },
-    {
-      "id": "story-5",
-      "priority": 5,
-      "category": "feature",
-      "title": "Implement add and edit todo functionality",
-      "description": "Create a modal or inline form for adding new todos and editing existing ones. Include fields for title (required), description (optional), due date, priority selection, and category assignment. Implement proper validation and error messages.",
-      "passes": false,
-      "status": "pending",
-      "acceptance_criteria": [
-        "Add todo modal opens from main UI",
-        "Title field is required with validation",
-        "Description field is optional",
-        "Due date picker works correctly",
-        "Priority and category can be selected",
-        "Edit existing todo with pre-filled values"
-      ]
-    },
-    {
-      "id": "story-6",
-      "priority": 6,
-      "category": "feature",
-      "title": "Implement toggle completion and delete",
-      "description": "Add functionality to mark todos as complete/incomplete and delete them. Include confirmation for deletion, strikethrough styling for completed items, and visual feedback for actions.",
-      "passes": false,
-      "status": "pending",
-      "acceptance_criteria": [
-        "Checkbox toggles completion status",
-        "Completed todos show strikethrough styling",
-        "Delete button removes todo with confirmation",
-        "Undo option after deletion (toast notification)",
-        "Bulk actions for multiple selections"
-      ]
-    },
-    {
-      "id": "story-7",
-      "priority": 7,
-      "category": "feature",
-      "title": "Implement smart filtering system",
-      "description": "Build a comprehensive filtering system allowing users to view todos by status (all, active, completed), priority level, category, and due date range. Include search functionality for finding todos quickly.",
-      "passes": false,
-      "status": "pending",
-      "acceptance_criteria": [
-        "Filter tabs for All/Active/Completed",
-        "Priority filter dropdown",
-        "Category filter with multi-select",
-        "Search by title and description",
-        "Date range filtering",
-        "Filter combinations work together"
-      ]
-    },
-    {
-      "id": "story-8",
-      "priority": 8,
-      "category": "feature",
-      "title": "Add task prioritization and sorting",
-      "description": "Implement drag-and-drop reordering of todos and automatic sorting options. Allow users to pin important tasks, set custom ordering, and sort by various criteria (date, priority, alphabet).",
-      "passes": false,
-      "status": "pending",
-      "acceptance_criteria": [
-        "Drag-and-drop reordering works smoothly",
-        "Manual order persists to localStorage",
-        "Sort by date (earliest/l latest first)",
-        "Sort by priority (high to low)",
-        "Pin important tasks to top",
-        "Visual indicators for custom order"
-      ]
-    },
-    {
-      "id": "story-9",
-      "priority": 9,
-      "category": "feature",
-      "title": "Implement dark mode and theming",
-      "description": "Add light and dark theme support with system preference detection. Create a theme switcher in settings, persist theme preference, and ensure all UI components adapt properly to both themes.",
-      "passes": true,
-      "status": "completed",
-      "acceptance_criteria": [
-        "Dark/light mode toggle in settings",
-        "System preference detection on first load",
-        "Theme persists across sessions",
-        "All components styled for both themes",
-        "Smooth transition between themes",
-        "Reduced motion support"
-      ]
-    },
-    {
-      "id": "story-10",
-      "priority": 10,
       "category": "testing",
-      "title": "Add unit tests and polish",
-      "description": "Write comprehensive unit tests for todo utilities, components, and state management. Ensure cross-browser compatibility, mobile responsiveness, and accessibility compliance. Polish UI with final touches.",
-      "passes": false,
-      "status": "pending",
+      "title": "Implement Playwright E2E testing for all features",
+      "description": "Install Playwright and write comprehensive end-to-end tests that cover every feature in the application. Test user interactions, CRUD operations, navigation, theming, and all UI components. Verify all features work correctly and fix any issues found during testing.",
+      "passes": true,
+      "status": "completed",
       "acceptance_criteria": [
-        "Unit tests pass with good coverage (>80%)",
-        "Integration tests for critical flows",
-        "Keyboard navigation works fully",
-        "Screen reader announcements for actions",
-        "Mobile responsive layout",
-        "ARIA labels and roles properly set"
+        "Playwright is installed and configured",
+        "Home page loads with todo list visible",
+        "Add todo modal opens and creates new todos",
+        "Edit todo functionality works correctly",
+        "Toggle completion checkbox works",
+        "Delete todo with confirmation works",
+        "Search functionality filters todos",
+        "Category pages display correctly",
+        "Settings page with theme toggles works",
+        "Dark/light theme switching works",
+        "localStorage persistence is verified",
+        "All navigation routes are accessible",
+        "Empty states display properly",
+        "Form validation works correctly",
+        "Priority and category badges display correctly"
       ]
     }
   ],
   "metadata": {
     "created": "2025-01-14",
-    "updated": "2025-01-14",
-    "total_stories": 10,
-    "completed_stories": 0
+    "updated": "2025-01-20",
+    "total_stories": 1,
+    "completed_stories": 1
   }
 }
