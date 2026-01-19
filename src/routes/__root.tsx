@@ -11,6 +11,7 @@ import {
 	LayoutDashboard,
 	Settings,
 } from "lucide-react";
+import "../styles.css";
 import { StoreProvider } from "../lib/store";
 import { ThemeProvider } from "../lib/theme";
 

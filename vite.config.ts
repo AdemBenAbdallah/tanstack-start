@@ -14,10 +14,6 @@ const config = defineConfig({
 			"@": fileURLToPath(new URL("./src", import.meta.url)),
 		},
 	},
-	define: {
-		// Fix for __dirname not defined in ESM modules (content-collections)
-		__dirname: JSON.stringify("/home/adem/Work/tanstack-start"),
-	},
 	plugins: [
 		devtools(),
 		cloudflare({ viteEnvironment: { name: "ssr" } }),

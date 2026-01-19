@@ -1,6 +1,9 @@
-import { Check, Clock, Edit, Flag } from "lucide-react";
+import { Clock, Edit, Flag, Trash2 } from "lucide-react";
 import type { Todo } from "../types/todo";
 import { PRIORITY_COLORS } from "../types/todo";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
 
 interface TodoItemProps {
 	todo: Todo;
@@ -21,89 +24,127 @@ export function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemProps) {
 		todo.dueDate && !todo.completed && new Date(todo.dueDate) < new Date();
 
 	return (
-		<div className="group flex items-start gap-4 p-4 bg-card/50 border border-border rounded-xl hover:bg-card hover:border-primary/30 transition-all duration-200 animate-in fade-in slide-in-from-bottom-2">
-			<button
-				type="button"
-				onClick={() => onToggle(todo.id)}
-				className={`mt-0.5 w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all duration-200 cursor-pointer ${
-					todo.completed
-						? "bg-primary border-primary text-primary-foreground"
-						: "border-border hover:border-primary/50 bg-background"
-				}`}
-			>
-				{todo.completed && <Check className="w-4 h-4" />}
-			</button>
+		<Card className="group relative overflow-hidden p-0">
+			{/* Hover gradient effect */}
+			<div className="absolute inset-0 bg-linear-0-to-r from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-			<div className="flex-1 min-w-0">
-				<div className="flex items-center gap-3 mb-1">
-					<h3
-						className={`font-medium truncate transition-all ${
-							todo.completed
-								? "text-muted-foreground line-through"
-								: "text-foreground"
-						}`}
+			<div className="relative flex items-start gap-4 p-4">
+				{/* Custom Checkbox */}
+				<label className="relative flex items-center cursor-pointer mt-0.5">
+					<input
+						type="checkbox"
+						checked={todo.completed}
+						onChange={() => onToggle(todo.id)}
+						className="peer appearance-none w-5 h-5 rounded-lg border-2 border-border bg-background checked:bg-primary checked:border-primary focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-0 transition-all duration-200 cursor-pointer shrink-0"
+					/>
+					<svg
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="3"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						className="absolute left-0.5 top-0.5 w-3.5 h-3.5 text-primary-foreground pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity duration-200"
+						aria-hidden="true"
+						role="presentation"
 					>
-						{todo.title}
-					</h3>
-					<span
-						className="px-2 py-0.5 text-xs font-medium rounded-full shrink-0"
-						style={{
-							backgroundColor: `${PRIORITY_COLORS[todo.priority]}20`,
-							color: PRIORITY_COLORS[todo.priority],
-						}}
-					>
-						{todo.priority}
-					</span>
-				</div>
+						<polyline points="20 6 9 17 4 12" />
+					</svg>
+				</label>
 
-				{todo.description && (
-					<p
-						className={`text-sm text-muted-foreground line-clamp-2 mb-2 ${
-							todo.completed ? "text-muted-foreground/60" : ""
-						}`}
-					>
-						{todo.description}
-					</p>
-				)}
-
-				<div className="flex items-center gap-4 text-xs text-muted-foreground">
-					{todo.dueDate && (
-						<span
-							className={`flex items-center gap-1 ${
-								isOverdue ? "text-red-500" : ""
+				<div className="flex-1 min-w-0">
+					{/* Title and Priority Badge */}
+					<div className="flex items-center gap-3 mb-2 flex-wrap">
+						<h3
+							className={`font-medium text-lg transition-all ${
+								todo.completed
+									? "text-muted-foreground line-through"
+									: "text-foreground"
 							}`}
 						>
-							<Clock className="w-3 h-3" />
-							{formattedDate}
-						</span>
+							{todo.title}
+						</h3>
+						<Badge
+							variant="outline"
+							style={{
+								borderColor: `${PRIORITY_COLORS[todo.priority]}40`,
+								backgroundColor: `${PRIORITY_COLORS[todo.priority]}15`,
+								color: PRIORITY_COLORS[todo.priority],
+							}}
+							className="capitalize"
+						>
+							{todo.priority}
+						</Badge>
+					</div>
+
+					{/* Description */}
+					{todo.description && (
+						<p
+							className={`text-sm text-muted-foreground line-clamp-2 mb-3 ${
+								todo.completed ? "text-muted-foreground/60" : ""
+							}`}
+						>
+							{todo.description}
+						</p>
 					)}
-					<span className="flex items-center gap-1">
-						<Flag className="w-3 h-3" />
-						{new Date(todo.createdAt).toLocaleDateString("en-US", {
-							month: "short",
-							day: "numeric",
-						})}
-					</span>
+
+					{/* Meta Info */}
+					<div className="flex items-center gap-4 text-xs text-muted-foreground">
+						{todo.dueDate && (
+							<span
+								className={`flex items-center gap-1.5 ${
+									isOverdue ? "text-red-400" : ""
+								}`}
+							>
+								<Clock className="w-3.5 h-3.5" />
+								{formattedDate}
+								{isOverdue && (
+									<span className="text-red-400 font-medium">(Overdue)</span>
+								)}
+							</span>
+						)}
+						<span className="flex items-center gap-1.5">
+							<Flag className="w-3.5 h-3.5" />
+							Created{" "}
+							{new Date(todo.createdAt).toLocaleDateString("en-US", {
+								month: "short",
+								day: "numeric",
+							})}
+						</span>
+					</div>
+				</div>
+
+				{/* Action Buttons */}
+				<div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-200">
+					<Button
+						type="button"
+						variant="ghost"
+						size="icon"
+						onClick={() => onEdit(todo)}
+						className="text-muted-foreground hover:text-foreground hover:bg-accent"
+					>
+						<Edit className="w-4 h-4" />
+						<span className="sr-only">Edit task</span>
+					</Button>
+					<Button
+						type="button"
+						variant="ghost"
+						size="icon"
+						onClick={() => onDelete(todo.id)}
+						className="text-muted-foreground hover:text-red-400 hover:bg-red-500/10"
+					>
+						<Trash2 className="w-4 h-4" />
+						<span className="sr-only">Delete task</span>
+					</Button>
 				</div>
 			</div>
 
-			<div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-200">
-				<button
-					type="button"
-					onClick={() => onEdit(todo)}
-					className="p-1.5 text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-all cursor-pointer"
-					aria-label="Edit task"
-				>
-					<Edit className="w-4 h-4" />
-				</button>
-				<button
-					type="button"
-					onClick={() => onDelete(todo.id)}
-					className="px-3 py-1.5 text-xs text-red-500 hover:bg-red-500/10 rounded-lg transition-all cursor-pointer"
-				>
-					Delete
-				</button>
-			</div>
-		</div>
+			{/* Progress indicator */}
+			<div
+				className={`absolute bottom-0 left-0 h-1 bg-primary transition-all duration-300 ${
+					todo.completed ? "w-full" : "w-0"
+				}`}
+			/>
+		</Card>
 	);
 }

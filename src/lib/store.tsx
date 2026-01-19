@@ -36,20 +36,61 @@ interface StoreContextType extends TodoStore {
 
 const StoreContext = createContext<StoreContextType | null>(null);
 
+// Check if we're in a browser environment
+const isBrowser = typeof window !== "undefined";
+
 export function useStore() {
 	const context = useContext(StoreContext);
-	if (!context) {
+	// Only throw if we're in browser and not inside a provider
+	if (!context && isBrowser) {
 		throw new Error("useStore must be used within a StoreProvider");
 	}
-	return context;
+	return context ?? createEmptyStore();
+}
+
+// Create a minimal store for SSR
+function createEmptyStore(): StoreContextType {
+	return {
+		todos: [],
+		categories: [],
+		toggleTodoCompletion: () => {},
+		addTodo: () => ({
+			id: "",
+			title: "",
+			description: "",
+			priority: "medium",
+			categoryId: null,
+			dueDate: null,
+			completed: false,
+			createdAt: "",
+			updatedAt: "",
+		}),
+		updateTodo: () => {},
+		removeTodo: () => {},
+		addCategory: () => ({
+			id: "",
+			name: "",
+			color: "",
+			createdAt: "",
+		}),
+		updateCategory: () => {},
+		removeCategory: () => {},
+	};
 }
 
 export function StoreProvider({ children }: { children: ReactNode }) {
 	const [store, setStore] = useState<TodoStore>(() => loadStore());
+	const [isHydrated, setIsHydrated] = useState(false);
 
 	useEffect(() => {
-		saveStore(store);
-	}, [store]);
+		setIsHydrated(true);
+	}, []);
+
+	useEffect(() => {
+		if (isHydrated) {
+			saveStore(store);
+		}
+	}, [store, isHydrated]);
 
 	const value: StoreContextType = {
 		...store,
