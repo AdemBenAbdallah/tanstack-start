@@ -1,0 +1,537 @@
+{
+  "tasks": [
+    {
+      "id": "cv-template-1",
+      "title": "Create CV data model types",
+      "description": "Create TypeScript interfaces for CV data model including Header, Experience, Education, Skills, Contact, and Section types",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Header interface with name, title, subtitle, and contact fields",
+        "Experience interface with company, position, date range, and description",
+        "Education interface with institution, degree, date range, and details",
+        "Skills interface with category, skill list, and proficiency levels",
+        "Contact interface with email, phone, location, website, and social links"
+      ]
+    },
+    {
+      "id": "cv-template-2",
+      "title": "Create template type definitions",
+      "description": "Create TemplateConfig, LayoutType, and StyleConfig interfaces",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "TemplateConfig interface with id, name, layoutType, and component",
+        "LayoutType union type (single-column, two-column, sidebar, modern)",
+        "StyleConfig interface for colors, fonts, spacing, and borders"
+      ]
+    },
+    {
+      "id": "cv-template-3",
+      "title": "Create template registry",
+      "description": "Create template registry and export utilities",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "TemplateRegistry type with getTemplate() and listTemplates() functions",
+        "Default template constants with color schemes and fonts",
+        "Template metadata exports for gallery display"
+      ]
+    },
+    {
+      "id": "cv-template-4",
+      "title": "Create reusable Header component",
+      "description": "Create reusable header component with name, title, and contact info",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "HeaderProps interface with required and optional fields",
+        "Support for avatar/image display",
+        "Layout variants (centered, left-aligned, split)",
+        "Social links rendering with icons"
+      ]
+    },
+    {
+      "id": "cv-template-5",
+      "title": "Create Section wrapper component",
+      "description": "Create generic section wrapper component with styling variants",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "SectionProps interface with title, optional icon, and children",
+        "Style variants (bordered, background, simple)",
+        "Collapsible support for long sections"
+      ]
+    },
+    {
+      "id": "cv-template-6",
+      "title": "Create ModernLayout template",
+      "description": "Create modern layout with full-width header and grid-based sections",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Full-width header with accent color background",
+        "Grid-based section layout (2-column on desktop)",
+        "Card-style experience entries with hover effects",
+        "Skills displayed in tag/badges format"
+      ]
+    },
+    {
+      "id": "cv-template-7",
+      "title": "Create ClassicLayout template",
+      "description": "Create traditional centered layout with horizontal dividers",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Centered single-column layout",
+        "Header with underline/border divider",
+        "Traditional timeline-style experience",
+        "Serif fonts for elegant appearance"
+      ]
+    },
+    {
+      "id": "cv-template-8",
+      "title": "Create MinimalLayout template",
+      "description": "Create clean single-column layout with ample whitespace",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Ultra-clean design with maximum whitespace",
+        "Subtle section dividers",
+        "No backgrounds or borders",
+        "Focus on typography and readability"
+      ]
+    },
+    {
+      "id": "cv-template-9",
+      "title": "Create ProfessionalLayout template",
+      "description": "Create two-column layout with sidebar for skills and contact",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "30% sidebar width on desktop",
+        "Sidebar for contact, skills, and summary",
+        "Main content area for experience and education",
+        "Sticky sidebar on scroll"
+      ]
+    },
+    {
+      "id": "cv-template-10",
+      "title": "Create CreativeLayout template",
+      "description": "Create asymmetrical layout with accent colors and creative typography",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Asymmetrical header design",
+        "Accent color usage throughout",
+        "Creative typography hierarchy",
+        "Icon-driven skill display"
+      ]
+    },
+    {
+      "id": "cv-template-11",
+      "title": "Export all templates with metadata",
+      "description": "Create template index with all templates exported with metadata",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Template objects with id, name, layoutType, and component",
+        "Preview thumbnails for gallery display",
+        "Category tags (professional, creative, minimal, etc.)",
+        "getAllTemplates() and getTemplateById() functions"
+      ]
+    },
+    {
+      "id": "cv-template-12",
+      "title": "Create layout analyzer types",
+      "description": "Create AnalysisResult and DetectedFeatures interfaces",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "AnalysisResult interface with confidence score and features",
+        "DetectedFeatures interface for columns, sections, and colors",
+        "ColorPalette interface with dominant colors",
+        "LayoutStructure interface for column count and positions"
+      ]
+    },
+    {
+      "id": "cv-template-13",
+      "title": "Create color extractor",
+      "description": "Create color extraction from uploaded image using canvas API",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Extract dominant colors from image using canvas API",
+        "Convert image to canvas for pixel analysis",
+        "K-means clustering for color palette",
+        "Return colors sorted by prominence"
+      ]
+    },
+    {
+      "id": "cv-template-14",
+      "title": "Create structure detector",
+      "description": "Create structure analysis for columns, sections, and whitespace",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Detect number of columns using vertical scan",
+        "Identify section boundaries using horizontal scan",
+        "Calculate whitespace ratios",
+        "Detect header/footer regions"
+      ]
+    },
+    {
+      "id": "cv-template-15",
+      "title": "Create similarity scorer",
+      "description": "Create algorithm to calculate similarity scores between image and templates",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Compare detected layout type with template layout",
+        "Calculate color similarity scores",
+        "Weight factors for columns, sections, and colors",
+        "Return ranked template matches"
+      ]
+    },
+    {
+      "id": "cv-template-16",
+      "title": "Create main layout analyzer",
+      "description": "Create main analyzer class with analyze() method",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "LayoutAnalyzer class with analyze(image) method",
+        "Combine color and structure analysis results",
+        "Calculate overall similarity to each template",
+        "Return AnalysisResult with recommended templates"
+      ]
+    },
+    {
+      "id": "cv-template-17",
+      "title": "Create AI converter types",
+      "description": "Create AICvConversionRequest/Response interfaces",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "AICvConversionRequest interface with image data and options",
+        "AICvConversionResponse interface with extracted data and template",
+        "ConversionOptions interface for model selection"
+      ]
+    },
+    {
+      "id": "cv-template-18",
+      "title": "Create AI conversion prompts",
+      "description": "Create system prompts for CV extraction and template mapping",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "System prompt for extracting CV data from screenshot",
+        "Template selection prompt based on layout analysis",
+        "Image analysis prompt for structure and colors"
+      ]
+    },
+    {
+      "id": "cv-template-19",
+      "title": "Create AI converter implementation",
+      "description": "Create convertToTemplate() function using TanStack AI",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "convertToTemplate() function with image and options",
+        "Use TanStack AI for Anthropic/OpenAI integration",
+        "Parse AI response into CV data model",
+        "Handle errors with retry logic"
+      ]
+    },
+    {
+      "id": "cv-template-20",
+      "title": "Create API route for AI conversion",
+      "description": "Create API route to handle server-side AI calls",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "POST endpoint accepting image data",
+        "Server-side AI call with API key",
+        "Rate limiting to prevent abuse",
+        "Error handling with meaningful messages"
+      ]
+    },
+    {
+      "id": "cv-template-21",
+      "title": "Configure environment variables",
+      "description": "Add environment variables for ANTHROPIC_API_KEY and OPENAI_API_KEY",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "ANTHROPIC_API_KEY for server-side calls",
+        "OPENAI_API_KEY as optional fallback",
+        "TypeScript type guards for environment checks"
+      ]
+    },
+    {
+      "id": "cv-template-22",
+      "title": "Create CV Upload component",
+      "description": "Create drag-and-drop file upload component with preview",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Drag and drop zone with visual feedback",
+        "File type validation (image/*)",
+        "Image preview after upload",
+        "Upload progress indicator"
+      ]
+    },
+    {
+      "id": "cv-template-23",
+      "title": "Create Template Gallery component",
+      "description": "Create grid display of available templates with thumbnails",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Responsive grid layout for templates",
+        "Template thumbnails with hover preview",
+        "Selection state with visual indicator",
+        "Filter by layout type"
+      ]
+    },
+    {
+      "id": "cv-template-24",
+      "title": "Create Template Preview component",
+      "description": "Create live preview of selected template with CV data",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Live preview of template with data",
+        "Zoom controls for better viewing",
+        "Toggle between desktop/mobile preview",
+        "Print preview mode"
+      ]
+    },
+    {
+      "id": "cv-template-25",
+      "title": "Create CV Editor component",
+      "description": "Create form to edit extracted CV data",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Form sections for each CV component",
+        "Add/remove experience entries",
+        "Add/remove education entries",
+        "Skills input with auto-complete"
+      ]
+    },
+    {
+      "id": "cv-template-26",
+      "title": "Create Layout Analyzer visualization",
+      "description": "Create visualization of detected layout features",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Display detected colors as palette",
+        "Show detected columns overlay",
+        "Display section boundaries",
+        "Show template match scores"
+      ]
+    },
+    {
+      "id": "cv-template-27",
+      "title": "Create useCVTemplate hook",
+      "description": "Create React hook for template state management",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Template selection state",
+        "CV data state with setter functions",
+        "Template customization options",
+        "Local storage persistence"
+      ]
+    },
+    {
+      "id": "cv-template-28",
+      "title": "Create useImageAnalysis hook",
+      "description": "Create hook for image upload and analysis",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Image upload handler",
+        "Canvas conversion for analysis",
+        "Layout analysis trigger",
+        "Analysis result state"
+      ]
+    },
+    {
+      "id": "cv-template-29",
+      "title": "Create useAIConversion hook",
+      "description": "Create hook for AI fallback conversion",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "AI conversion trigger function",
+        "Progress tracking for long conversions",
+        "Result state with CV data",
+        "Retry on failure functionality"
+      ]
+    },
+    {
+      "id": "cv-template-30",
+      "title": "Create CV Builder main page",
+      "description": "Create main CV Builder page with multi-step wizard",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Four-step wizard (Upload, Analyze, Edit, Export)",
+        "Step navigation with progress indicator",
+        "State persistence between steps",
+        "Keyboard navigation support"
+      ]
+    },
+    {
+      "id": "cv-template-31",
+      "title": "Implement Step 1: Upload",
+      "description": "Implement Step 1: Upload screenshot with drag-and-drop",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Dropzone for image upload",
+        "File preview after upload",
+        "Continue button after valid upload",
+        "Skip option to use blank template"
+      ]
+    },
+    {
+      "id": "cv-template-32",
+      "title": "Implement Step 2: Analyze",
+      "description": "Implement Step 2: Display layout analysis results and template matches",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Layout analysis visualization",
+        "Template gallery with match scores",
+        "Auto-select best matching template",
+        "Option to select different template"
+      ]
+    },
+    {
+      "id": "cv-template-33",
+      "title": "Implement Step 3: Edit",
+      "description": "Implement Step 3: Edit extracted content with form validation",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Form sections with validation",
+        "Add/remove items from lists",
+        "Real-time preview updates",
+        "Form validation with error messages"
+      ]
+    },
+    {
+      "id": "cv-template-34",
+      "title": "Implement Step 4: Export",
+      "description": "Implement Step 4: Export options (PDF, HTML, JSON)",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Export to PDF button",
+        "Export to HTML button",
+        "Export to JSON button",
+        "Copy to clipboard functionality"
+      ]
+    },
+    {
+      "id": "cv-template-35",
+      "title": "Add navigation to CV Builder",
+      "description": "Add navigation link to CV Builder from homepage",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Link on homepage to /cv-builder",
+        "Proper routing configuration",
+        "Active state styling"
+      ]
+    },
+    {
+      "id": "cv-template-36",
+      "title": "Create Convex functions for template storage",
+      "description": "Create Convex functions for saving and retrieving CV templates",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "saveCvTemplate() function",
+        "getUserTemplates() function",
+        "deleteTemplate() function",
+        "Proper authentication checks"
+      ]
+    },
+    {
+      "id": "cv-template-37",
+      "title": "Add PDF export functionality",
+      "description": "Add export to PDF functionality using browser print",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Print-friendly CSS styles",
+        "Download as PDF option",
+        "Page break handling",
+        "Proper margins and spacing"
+      ]
+    },
+    {
+      "id": "cv-template-38",
+      "title": "Add HTML export functionality",
+      "description": "Add export to HTML/CSS functionality",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Self-contained HTML file",
+        "Embedded CSS styles",
+        "Download as .zip option",
+        "Preserve template styling"
+      ]
+    },
+    {
+      "id": "cv-template-39",
+      "title": "Add loading states and skeletons",
+      "description": "Add loading states and skeleton loaders for AI conversion",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Skeleton loaders for template gallery",
+        "Loading spinner for AI conversion",
+        "Progress bar for analysis",
+        "Pulse animations for placeholders"
+      ]
+    },
+    {
+      "id": "cv-template-40",
+      "title": "Add error handling and retry",
+      "description": "Add error handling and retry logic for failed conversions",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Error boundary component",
+        "Retry button for failed operations",
+        "Toast notifications for errors",
+        "Fallback UI for network failures"
+      ]
+    },
+    {
+      "id": "cv-template-41",
+      "title": "Write unit tests for layout analyzer",
+      "description": "Write unit tests for layout analyzer similarity scoring",
+      "passes": false,
+      "status": "pending",
+      "acceptance_criteria": [
+        "Test color extraction accuracy",
+        "Test structure detection for different layouts",
+        "Test similarity scoring algorithm",
+        "Mock canvas API for testing"
+      ]
+    }
+  ],
+  "metadata": {
+    "created": "2025-01-27",
+    "updated": "2025-01-27",
+    "total_tasks": 41,
+    "completed_tasks": 0
+  }
+}
